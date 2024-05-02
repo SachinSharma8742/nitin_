@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two Videos</title>
+<style>
+  .black-box {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%; /* Adjust width as needed */
+    max-width: 1200px; /* Adjust max-width as needed */
+    height: 600px; /* Adjust height as needed */
+    margin: 0 auto;
+  }
+
+  #video-container {
+    position: relative;
+    width: 640px; /* Adjust width as needed */
+    height: 360px; /* Adjust height as needed */
+    left: 450px;
+    margin-right: 100px;
+    top: -200px ;
+
+  }
+  #entry, #loop {
+    position: absolute;
+    top: 0;
+    left: 250px;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+</head>
+<body>
+  <div class="black-box">
+    <div class="text"><h1>Fello Esports</h1>
+      <h2>Fello Esports</h2>
+      <p>This is some sample text on the left side of the black box.</p>
+    
+    <div class="entry-video">
+      <!-- You can insert your video file here -->
+      <!-- Example: -->
+      <div id="video-container">
+        <video id="entry" autoplay="autoplay">
+          <source src="entry.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <video id="loop" autoplay="autoplay" loop muted style="display: none;">
+          <source src="loop.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+  var entry = document.getElementById('entry');
+  var loop = document.getElementById('loop');
+
+  entry.addEventListener('ended', function() {
+    entry.style.display = 'none';
+    loop.style.display = 'block';
+    loop.play();
+  });
+</script>
+
+</body>
+</html>
