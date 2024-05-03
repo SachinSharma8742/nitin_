@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heart animation</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    
     <style>
         body {
             display: flex;
@@ -42,10 +42,6 @@
         }
         .yes {
             background-color: lightgreen;
-        }
-        .slide-left {
-            
-            opacity: 0;
         }
         .active {
             background-color: lightblue;
@@ -111,30 +107,11 @@
 </head>
 <body><div class="box">
     <div class="heart"></div>
-    <div id="question">Will you marry me?</div>
+    <div id="question">Do you love me?</div>
     <div class="options-container">
-        <div class="option no" onclick="handleClick(event, 'no')">No</div>
-        <a href="test.html" id="yes-link" class="option yes" onclick="handleClick(event, 'yes')">Yes</a>
+        <a href="index copy.html" class="option no" onclick="handleClick(event, 'no')">No</a>
+        <a href="test.html" class="option yes" onclick="handleClick(event, 'yes')">Yes</a>
     </div>
 </div>
-
-    <script>
-        function handleClick(event, option) {
-            const buttons = document.getElementsByClassName('option');
-            for (let i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove('active', 'slide-left');
-            }
-            event.target.classList.add('active');
-
-            if (option === 'no') {
-                setTimeout(() => {
-                    event.target.classList.add('slide-left');
-                    document.querySelector('.yes').style.transition = 'none'; // Remove transition from Yes button
-                }, 50); // Add a slight delay before applying the transition
-            } else {
-                event.target.classList.remove('option');
-            }
-        }
-    </script>
 </body>
 </html>
