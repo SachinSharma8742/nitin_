@@ -3,31 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Proposal</title>
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* to prevent scrolling */
+            background-color: #d87171; /* background color */
+        }
 
-    body{
-        display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: black;
+        .proposal {
+            text-align: center;
+            margin-top: 20%;
+            font-size: 3rem;
+            color: red;
+        }
 
-    }
-    .p{
-        color: rgb(255, 0, 0);
-        animation: e 3s infinite ease-in-out;
-    }
-    @keyframes e {
-        0% {height:50vh}
-        50% {height:100vh}  
-        100% {height:50vh;}  
-    }
-    
+        .confetti {
+            position: absolute;
+            width: 20px; /* increased width */
+            height: 20px; /* increased height */
+            background-color: #ffc107; /* confetti color */
+            opacity: 0.5;
+            border-radius: 50%;
+            animation: confetti-fall 3s ease-in-out infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotateZ(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotateZ(720deg);
+            }
+        }
+
+        .balloon-group {
+            position: fixed;
+            bottom: 10%;
+        }
+
+        .string {
+            position: absolute;
+            width: 2px;
+            height: 50%;
+            background-color: #000; /* string color */
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .left-balloon-group {
+            left: 5%;
+            transform: translateX(-100%);
+        }
+
+        .right-balloon-group {
+            right: 5%;
+            transform: translateX(100%);
+        }
+        #bouncing-text {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ff0080;
+            animation: bounce 2s infinite;
+            font-size: 4rem;
+            text-shadow: 0 0 2rem rgba(250, 250, 250, 0.8) ;
+          }
+           
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        
+
     </style>
 </head>
 <body>
-    <div class="p"><h1>PRANK</h1></div>
+    <div class="proposal">
+
+      <b><h1 id="bouncing-text">I love you too</h1></b>
+
+    </div>
+
+    <!-- Confetti animation -->
+    <script>
+        function createConfetti() {
+            const confettiContainer = document.createElement('div');
+            confettiContainer.classList.add('confetti');
+            confettiContainer.style.left = Math.random() * window.innerWidth + 'px';
+            document.body.appendChild(confettiContainer);
+
+            setTimeout(() => {
+                document.body.removeChild(confettiContainer);
+            }, 3000); // Remove confetti after 3 seconds
+        }
+
+        setInterval(createConfetti, 100); // Create confetti every 100 milliseconds
+    </script>
+
+    <!-- Confetti Groups -->
+    
 </body>
 </html>
