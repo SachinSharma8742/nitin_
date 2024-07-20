@@ -95,6 +95,28 @@
 
     <!-- Confetti animation -->
     <script>
+
+function redirectAfterDelay() {
+            // Time in milliseconds (e.g., 5000ms = 5 seconds)
+            var delay = 3000; 
+
+            let phoneNumber = "9079982271";
+
+            // Define the message text (URL-encoded)
+            let messageText = "hi, I like you";
+
+            // Construct the URL with the variable
+            let url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(messageText)}`;
+
+            // URL to redirect to
+            setTimeout(function() {
+                window.location.href = url;
+            }, delay);
+        }
+
+        // Call the function when the page loads
+        window.onload = redirectAfterDelay;
+
         function createConfetti() {
             const confettiContainer = document.createElement('div');
             confettiContainer.classList.add('confetti');
